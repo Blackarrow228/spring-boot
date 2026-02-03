@@ -37,6 +37,7 @@ public class UserService {
         return mapToDetailUserResponse(user);
     }
 
+    @Transactional
     public UUID createUser(UserRequest request) {
         return repository.save(mapToUser(request)).getId();
     }
@@ -44,15 +45,16 @@ public class UserService {
     @Transactional
     public UUID patchUser(UserRequest request, UUID userId) {
         User user = repository.findById(userId).orElseThrow(() -> new NotFoundException(ERROR_MESSAGE.formatted(userId)));
-        if (!request.getName().isBlank() && request.getName() != null) {
+        if (request.getName() != null && !request.getName().isBlank()) {
             user.setName(request.getName());
         }
-        if (!request.getEmail().isBlank() && request.getEmail() != null) {
+        if (request.getEmail() != null && !request.getEmail().isBlank()) {
             user.setEmail(request.getEmail());
         }
         return user.getId();
     }
 
+    @Transactional
     public UUID deleteUser(UUID userId) {
         repository.deleteById(userId);
         return userId;
