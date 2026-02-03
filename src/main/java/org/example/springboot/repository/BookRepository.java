@@ -1,6 +1,5 @@
 package org.example.springboot.repository;
 
-import org.example.springboot.dto.request.BookRequest;
 import org.example.springboot.entity.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 
