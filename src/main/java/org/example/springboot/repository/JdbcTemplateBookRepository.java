@@ -68,7 +68,7 @@ public class JdbcTemplateBookRepository implements BookRepository {
     public List<Book> findAll() {
         return template.query(
                 """
-                        SELECT id, title, author, publication_year 
+                        SELECT id, title, author, publication_year
                         FROM books
                         """,
                 rowMapper
@@ -80,7 +80,7 @@ public class JdbcTemplateBookRepository implements BookRepository {
     public int update(Book book) {
         return template.update(
                 """
-                        UPDATE books 
+                        UPDATE books
                         SET title = ?, author = ?, publication_year = ?
                         WHERE id = ?
                         """,
