@@ -1,9 +1,7 @@
 package org.example.springboot.controllerTest;
 
 import org.example.springboot.controller.DepartmentController;
-import org.example.springboot.dto.EmployeeDto;
 import org.example.springboot.entity.Department;
-import org.example.springboot.entity.Employee;
 import org.example.springboot.service.DepartmentService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

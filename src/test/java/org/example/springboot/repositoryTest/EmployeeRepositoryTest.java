@@ -78,23 +78,6 @@ class EmployeeRepositoryTest {
     @Test
     void findById() {
         Optional<EmployeeProjection> found = employeeRepository.findProjectionById(employee.getId());
-
-        EmployeeProjection other = new EmployeeProjection() {
-            @Override
-            public String getFullName() {
-                return "";
-            }
-
-            @Override
-            public String getPosition() {
-                return "";
-            }
-
-            @Override
-            public String getDepartmentName() {
-                return "";
-            }
-        };
         if (found.isPresent()) {
             System.out.println("FullName: " + found.get().getFullName());
             System.out.println("Position: " + found.get().getPosition());
