@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class AuthController {
 
-    private static final Logger log = LoggerFactory.getLogger(AuthController.class);
     private final AuthService authService;
 
     @PostMapping("/registration")
