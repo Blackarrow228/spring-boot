@@ -7,7 +7,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.example.springboot.dto.Log;
-import org.example.springboot.dto.request.LoginRequest;
 import org.example.springboot.dto.response.LoginResponse;
 import org.example.springboot.entity.User;
 import org.example.springboot.repository.UserRepository;
