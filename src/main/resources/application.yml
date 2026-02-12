@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: spring-boot
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: Ov23liTrwjqkvY57d0vq
+            clientSecret: 988edcaa8044f7ff2b77ca9104414e8c3211cb4b
+
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password: password
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql: true
