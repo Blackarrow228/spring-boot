@@ -1,6 +1,7 @@
 package org.example.springboot.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.example.springboot.entity.Product;
 import org.example.springboot.service.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -40,7 +41,7 @@ public class ProductController {
     }
 
     @PostMapping
-    public ResponseEntity<String> createProduct(@RequestBody String productJson) {
+    public ResponseEntity<String> createProduct(@RequestBody Product productJson) {
             String json = productService.createProduct(productJson);
             return ResponseEntity.status(HttpStatus.CREATED)
                     .contentType(MediaType.APPLICATION_JSON)
@@ -49,7 +50,7 @@ public class ProductController {
 
     @PatchMapping("/{id}")
     public ResponseEntity<String> updateProduct(@PathVariable UUID id,
-                                                @RequestBody String productJson) {
+                                                @RequestBody Product productJson) {
             String json = productService.updateProduct(id, productJson);
             return ResponseEntity.ok()
                     .contentType(MediaType.APPLICATION_JSON)

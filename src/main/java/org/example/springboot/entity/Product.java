@@ -20,7 +20,7 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "id")
+    @Column(name = "product_id")
     private UUID productId;
     @NotBlank(message = "название не должно быть пустым")
     @NotNull(message = "название не должно быть null")

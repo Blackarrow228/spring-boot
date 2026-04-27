@@ -9,6 +9,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
@@ -23,6 +24,7 @@ import java.util.UUID;
 @Entity
 @Getter
 @Setter
+@Table(name = "\"order\"")
 public class Order {
 
     @Id
@@ -31,7 +33,7 @@ public class Order {
     @OneToOne
     private Customer customer;
     @OneToMany
-    @JoinColumn(name = "product_id")
+    @JoinColumn(name = "order_id")
     private List<Product> products;
     private LocalDateTime orderDate;
     @NotBlank(message = "адрес должен быть заполнен")
