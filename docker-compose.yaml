@@ -1,0 +1,39 @@
+services:
+
+  postgres:
+    image: postgres:16.4-alpine
+    container_name: postgres-example
+    environment:
+      POSTGRES_DB: mvc
+      POSTGRES_USER: user_mvc
+      POSTGRES_PASSWORD: mvc
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./init-db:/docker-entrypoint-initdb.d/
+    networks:
+      - backend
+
+  redis:
+    image: redis:8.6.2-alpine3.23
+    container_name: redis_container
+    environment:
+      REDIS_PASSWORD: mvc
+      REDIS_USER: user_mvc
+      REDIS_USER_PASSWORD: mvc
+    ports:
+      - "6380:6379"
+    volumes:
+      - ./redisdata:/data
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+    networks:
+      - backend
+networks:
+  backend:

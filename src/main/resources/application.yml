@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: spring-boot
+  datasource:
+    url: jdbc:postgresql://localhost:5433/mvc?currentSchema=mvc
+    username: user_mvc
+    password: mvc
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  data:
+    redis:
+      port: 6380
+      host: localhost
+      password: mvc
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,caches
+  endpoint:
+    caches:
+      enabled: true
+    metrics:
+      enabled: true
